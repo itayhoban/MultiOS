@@ -24,6 +24,8 @@
         <maven.compiler.release>21</maven.compiler.release>
         <junit.version>5.11.4</junit.version>
         <jackson.version>2.18.2</jackson.version>
+        <javafx.version>21.0.6</javafx.version>
+        <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +40,16 @@
                 <artifactId>multios-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.multios</groupId>
+                <artifactId>plugin-win-native</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.multios</groupId>
+                <artifactId>plugin-java-multi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -48,6 +60,12 @@
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-jsr310</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-controls</artifactId>
+                <version>${javafx.version}</version>
             </dependency>
 
             <dependency>

@@ -20,4 +20,26 @@
             <artifactId>multios-api</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <!--
+                              Artifact id "plugin-win-native" would derive an invalid automatic
+                              module name (trailing "native"). Set an explicit valid name so
+                              javafx-maven-plugin / plexus-java keep this jar on the runtime path.
+                            -->
+                            <Automatic-Module-Name>com.multios.plugin.windows</Automatic-Module-Name>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

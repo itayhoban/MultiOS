@@ -23,5 +23,40 @@
             <groupId>com.multios</groupId>
             <artifactId>multios-core</artifactId>
         </dependency>
+
+        <!-- Runtime plugins must be on the classpath so ServiceLoader can discover them. -->
+        <dependency>
+            <groupId>com.multios</groupId>
+            <artifactId>plugin-win-native</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.multios</groupId>
+            <artifactId>plugin-java-multi</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>${javafx.maven.plugin.version}</version>
+                <configuration>
+                    <!--
+                      CLASSPATH + dedicated launcher avoids Windows module-path issues
+                      when JavaFX is not on the JDK module path.
+                    -->
+                    <runtimePathOption>CLASSPATH</runtimePathOption>
+                    <mainClass>com.multios.ui.MultiOsLauncher</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
